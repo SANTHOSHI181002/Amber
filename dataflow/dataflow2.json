@@ -1,0 +1,35 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Pregnancies as string,",
+				"          Glucose as string,",
+				"          BloodPressure as string,",
+				"          SkinThickness as string,",
+				"          Insulin as string,",
+				"          BMI as string,",
+				"          DiabetesPedigreeFunction as string,",
+				"          Age as string,",
+				"          Outcome as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1"
+			]
+		}
+	}
+}
